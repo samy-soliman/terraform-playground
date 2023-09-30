@@ -1,7 +1,14 @@
-configure remote backend and configure state locking using dynamo db</br>
+<h1>Terraform Lab1</h1>
+</br>
+<video width="320" height="240" controls>
+  <source src="https://github.com/samy-soliman/terraform-playground/blob/main/playground-1/playground-1.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</br>
+First : configure remote backend and configure state locking using dynamo db</br>
 </br>
 
-Networking </br>
+<h2>Networking </h2></br>
 1- create vpc </br>
 2- create internet gateway </br>
 3- 2 public subnets and 2 private subnets , seperated in two AZ's , every Az has one public and one private </br>
@@ -15,7 +22,7 @@ Networking </br>
 10- attach it to private subnets</br>
 
 </br>
-Compute </br>
+<h2> Compute </h2></br>
 7- create security group which allow ssh from 0.0.0.0/0 </br>
 8- create security group that allow ssh and port 3000 from vpc cidr only </br>
 7- create ec2(bastion) in public subnet with security group from 7 </br>
