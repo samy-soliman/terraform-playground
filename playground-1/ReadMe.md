@@ -2,7 +2,9 @@
 
 </br>
 
-<video src='https://github.com/samy-soliman/terraform-playground/blob/main/playground-1/playground-1.mp4' width=180/>
+<video>
+  <source src="https://github.com/samy-soliman/terraform-playground/blob/main/playground-1/playground-1.mp4" type="video/mp4">
+</video>
 
 </br>
 First : configure remote backend and configure state locking using dynamo db</br>
