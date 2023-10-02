@@ -4,7 +4,7 @@
 
 This is a follow up on playground-1</br>
 
-<h2>Networking </h2></br>
+<h2>Lab2 Steps </h2></br>
 1-create two workspaces dev and prod
 2-create two variable definition files(.tfvars) for the two environments
 3-separate network resources into network module
