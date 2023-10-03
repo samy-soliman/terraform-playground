@@ -1,39 +1,45 @@
-# public key
+#############################
+#### public subnet key ######
+#############################
 resource "tls_private_key" "iti-rsa-key" {
   algorithm = "RSA"
   rsa_bits  = 2048
 }
 
 resource "aws_key_pair" "iti-terraform-public-key" {
-  key_name   = "terraform"  
+  key_name = "${var.key_name}-key"
   public_key = tls_private_key.iti-rsa-key.public_key_openssh
   tags = {
-    Name = "iti-iac-terraform-key"
+    Name = "iti-iac-${var.key_name}"
     project = "iti-terraform"
   }
 }
 
 resource "local_file" "iti-terraform-public-private-key" {
-  filename = "terraform.pem"
+  filename = "${var.key_name}-key.pem"
   content  = tls_private_key.iti-rsa-key.private_key_pem
 }
 
-### private key
+
+
+#############################
+#### private subnet key #####
+#############################
 resource "tls_private_key" "iti-rsa-private-key" {
   algorithm = "RSA"
   rsa_bits  = 2048
 }
 
 resource "aws_key_pair" "iti-terraform-private-key" {
-  key_name   = "terraform-private"  
+  key_name   = "${var.key_name}-private-key"  
   public_key = tls_private_key.iti-rsa-private-key.public_key_openssh
   tags = {
-    Name = "iti-iac-terraform-private-key"
+    Name = "iti-iac-${var.key_name}-private-key"
     project = "iti-terraform"
   }
 }
 
 resource "local_file" "iti-terraform-private-private-key" {
-  filename = "terraform-private.pem"
+  filename = "${var.key_name}-private-key.pem"
   content  = tls_private_key.iti-rsa-private-key.private_key_pem
 }

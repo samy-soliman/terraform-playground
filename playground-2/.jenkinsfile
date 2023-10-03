@@ -1,0 +1,64 @@
+pipeline {
+    agent any
+    parameters {
+        choice choices: ['prod', 'dev'], name: 'workspace'
+    }
+
+    stages {
+        stage('git') {
+            steps {
+                git branch: 'main', url: 'https://github.com/samy-soliman/terraform-playground.git'
+            }
+        }
+        stage('Hello') {
+            steps {
+                sh "echo ${params.workspace}"
+            }
+        }
+        stage('Test Aws') {
+            steps {
+                sh "aws s3 ls --profile terraform"
+            }
+        }
+        stage('Init') {
+            steps {
+                dir('playground-2') {
+                    sh 'pwd'
+                    sh 'terraform init'
+                }
+            }
+        }
+        stage('Check-Workspaces') {
+            steps {
+                dir('playground-2') {
+                    script {
+                    def workspace_name = params.workspace
+
+                    if (workspace_name == 'dev') {
+                        sh 'terraform workspace new dev || true' 
+                        sh 'terraform workspace select dev '
+                    } else if (workspace_name == 'prod') {
+                        sh 'terraform workspace new prod || true' 
+                        sh 'terraform workspace select prod '
+                    }
+                }
+                }
+            }
+        }
+        stage('apply') {
+            steps {
+                dir('playground-2') {
+                    sh "terraform workspace select ${params.workspace}"
+                    sh "terraform apply --var-file=${params.workspace}.tfvars -auto-approve"
+                }
+            }
+        }
+        stage('Print Instances IP') {
+            steps {
+                dir('playground-2') {
+                    sh "cat inventory"
+                }
+            }
+        }
+    }
+}

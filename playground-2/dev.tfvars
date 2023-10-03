@@ -45,7 +45,9 @@ subnet_config = {
     ],
   }
 
-ec2-ami = "ami-053b0d53c279acc90" # ubuntu us-east-1a
+ec2-ami = "ami-024e6efaf93d85776" # ubuntu us-east-2
+remote_user = "ubuntu"
+
 instance_type = "t2.micro"
 
 vpc_cidr_block = "10.0.0.0/16"
@@ -55,4 +57,5 @@ project_tag = "iti-terraform"
 profile = "terraform"
     
 region = "us-east-2"
-    
+
+key_name = "development"

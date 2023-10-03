@@ -5,6 +5,10 @@ variable "subnet_config" {
     map_public_ip_on_launch = bool
     tags = map(string)
   })))
+  validation {
+    condition     = length(keys(var.subnet_config)) == 4  
+    error_message = "Error!, enter four subnets"
+  }
 }
 
 variable "ec2-ami" {
@@ -39,3 +43,10 @@ variable "region" {
     type = string
 }
 
+variable "key_name" {
+  type = string
+}
+
+variable "remote_user" {
+  type = string
+}
