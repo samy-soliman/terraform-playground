@@ -35,7 +35,7 @@ resource "aws_instance" "iti-instances-private" {
   subnet_id = aws_subnet.subnets["rsubnet${count.index + 1}"].id
   key_name = aws_key_pair.iti-terraform-private-key.key_name
   tags = {
-    Name = "iti-iac-instance-private"
+    Name = "iti-iac-instance-private-${count.index + 1}"
     project = var.project_tag
   }
 }
