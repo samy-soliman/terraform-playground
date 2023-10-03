@@ -30,6 +30,6 @@ resource "aws_route_table_association" "iti-routeassociates-private" {
   ]
 
   subnet_id      = aws_subnet.subnets["rsubnet${count.index + 1}"].id
-  route_table_id = aws_route_table.iti-natgateways[count.index].id
+  route_table_id = aws_route_table.iti-routetable-natgateways[count.index].id
 }
 
