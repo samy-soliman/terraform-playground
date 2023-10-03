@@ -1,7 +1,7 @@
 <h1>Terraform Lab2</h1>
 This is a follow up on playground-1</br>
 
-Assumpiotion: to limit the scope of our design and to define it , we design it to make a high available program, the infrustructure is explained in this simple diagram</br>
+<p>Assumpiotion</p>: to limit the scope of our design and to define it , we design it to make a high available program, the infrustructure is explained in this simple diagram</br>
 ![alt text](https://github.com/samy-soliman/terraform-playground/blob/main/playground-2/photos/design.png)
 <h2>manual</h2>
 it deploys in the region of your choise:</br>

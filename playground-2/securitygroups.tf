@@ -26,8 +26,7 @@ resource "aws_vpc_security_group_ingress_rule" "iti-securitygrouprule-ingress-ss
 
 resource "aws_vpc_security_group_egress_rule" "iti-securitygrouprule-egress-all" {
   security_group_id = aws_security_group.iti-securitygroup-public.id
-  from_port         = 0
-  to_port           = 0
+
   ip_protocol       = "-1"  # This means all protocols
   cidr_ipv4         = "0.0.0.0/0"
   tags = {
@@ -78,8 +77,6 @@ resource "aws_vpc_security_group_ingress_rule" "iti-securitygrouprule-private-in
 
 resource "aws_vpc_security_group_egress_rule" "iti-securitygrouprule-private-egress-all" {
   security_group_id = aws_security_group.iti-securitygroup-private.id
-  from_port         = 0
-  to_port           = 0
   ip_protocol       = "-1"  # This means all protocols
   cidr_ipv4         = "0.0.0.0/0"
   tags = {

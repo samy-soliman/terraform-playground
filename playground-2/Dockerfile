@@ -5,7 +5,7 @@ FROM jenkins/jenkins:latest
 USER root
 
 # Install necessary packages for Terraform installation
-RUN apt update && apt install -y wget unzip curl lsb-release
+RUN apt update && apt install -y wget unzip curl 
 
 # Download and install Terraform version 1.5.7 directly
 RUN wget https://releases.hashicorp.com/terraform/1.5.7/terraform_1.5.7_linux_amd64.zip -O terraform.zip \
