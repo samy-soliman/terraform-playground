@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         choice choices: ['prod', 'dev'], name: 'workspace'
-    }
+    } 
 
     stages {
         stage('git') {
