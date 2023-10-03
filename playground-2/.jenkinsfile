@@ -57,6 +57,7 @@ pipeline {
             steps {
                 dir('playground-2') {
                     sh "cat inventory"
+                    sh "rm inventory"
                 }
             }
         }
