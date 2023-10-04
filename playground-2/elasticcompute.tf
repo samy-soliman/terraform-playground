@@ -8,7 +8,7 @@ resource "aws_instance" "iti-instances-public" {
   associate_public_ip_address = true
   #availability_zone = "us-east-1a"
   vpc_security_group_ids = [aws_security_group.iti-securitygroup-public.id]
-  subnet_id = aws_subnet.subnets["psubnet${count.index + 1}"].id
+  subnet_id =  module.network.iti-subnets["psubnet${count.index + 1}"].id
   key_name = aws_key_pair.iti-terraform-public-key.key_name
   provisioner "local-exec" {
     command = "echo ${self.public_ip}  >> inventory "
@@ -32,7 +32,7 @@ resource "aws_instance" "iti-instances-private" {
   instance_type = var.instance_type
   #availability_zone = "us-east-1a"
   vpc_security_group_ids = [aws_security_group.iti-securitygroup-private.id]
-  subnet_id = aws_subnet.subnets["rsubnet${count.index + 1}"].id
+  subnet_id = module.network.iti-subnets["rsubnet${count.index + 1}"].id
   key_name = aws_key_pair.iti-terraform-private-key.key_name
   tags = {
     Name = "iti-iac-instance-private-${count.index + 1}"

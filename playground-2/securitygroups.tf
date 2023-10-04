@@ -3,7 +3,7 @@
 resource "aws_security_group" "iti-securitygroup-public" {
   name        = "securitygroup-public"
   description = "Allow SSH inbound traffic"
-  vpc_id      = aws_vpc.iti-vpc.id
+  vpc_id      = module.network.iti-vpc
 
   tags = {
     Name = "iti-iac-securitygroup-public"
@@ -41,7 +41,7 @@ resource "aws_vpc_security_group_egress_rule" "iti-securitygrouprule-egress-all"
 resource "aws_security_group" "iti-securitygroup-private" {
   name        = "securitygroup-private"
   description = "Allow SSH inbound and port 3000 traffic"
-  vpc_id      = aws_vpc.iti-vpc.id
+  vpc_id      = module.network.iti-vpc
 
   tags = {
     Name = "iti-iac-securitygroup-private"
@@ -52,7 +52,7 @@ resource "aws_security_group" "iti-securitygroup-private" {
 resource "aws_vpc_security_group_ingress_rule" "iti-securitygrouprule-private-ingress-ssh" {
   security_group_id = aws_security_group.iti-securitygroup-private.id
 
-  cidr_ipv4   = aws_vpc.iti-vpc.cidr_block
+  cidr_ipv4   = module.network.iti-vpc-cidr_block
   from_port   = 22
   ip_protocol = "tcp"
   to_port     = 22
@@ -65,7 +65,7 @@ resource "aws_vpc_security_group_ingress_rule" "iti-securitygrouprule-private-in
 resource "aws_vpc_security_group_ingress_rule" "iti-securitygrouprule-private-ingress-web" {
   security_group_id = aws_security_group.iti-securitygroup-private.id
 
-  cidr_ipv4   = aws_vpc.iti-vpc.cidr_block
+  cidr_ipv4   = module.network.iti-vpc-cidr_block
   from_port   = 3000
   ip_protocol = "tcp"
   to_port     = 3000
