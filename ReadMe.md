@@ -39,7 +39,6 @@ it deploys in the region of your choise:</br>
 6- internet gateway</br>
 7- 2 elastix ip addresses</br>
 </br>
-<h2>Open playground-2 video to see it live :D</h2>
 <h2>Lab2 Break Down </h2></br>
 1-create two workspaces dev and prod</br>
 2-create two variable definition files(.tfvars) for the two environments</br>
