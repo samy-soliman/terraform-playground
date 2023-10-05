@@ -6,8 +6,8 @@ we are also triggering the terraform code from a jenkins docker based pipeline.
 
 <h2>Open playground-2 video to see it live :D</h2>
 
-<h2>playgroung-1 task</h2>
-First : configure remote backend and configure state locking using dynamo db</br>
+<h1>playgroung-1 task</h1>
+First : configure remote backend and configure state locking using s3 and dynamo db</br>
 <h2>Networking </h2>
 1- create vpc </br>
 2- create internet gateway </br>
@@ -28,7 +28,7 @@ First : configure remote backend and configure state locking using dynamo db</br
 8- create ec2(application) private subnet with security group from 8 </br>
 
 
-<h2>playgroung-2 task</h2>
+<h1>playgroung-2 task</h1>
 <h2>manual</h2>
 it deploys in the region of your choise:</br>
 1- mandatory to enter 4 subnets configs , 2 public , 2 private</br>
