@@ -3,7 +3,7 @@ Deploy a high availablle insfrustructure solution on aws using terraform, making
 we are also triggering the terraform code from a jenkins docker based pipeline.
 
 ![alt text](https://github.com/samy-soliman/terraform-playground/blob/main/playground-2/photos/design.png)
-
+![alt text](https://github.com/samy-soliman/terraform-playground/blob/main/playground-2/photos/pipeline.PNG)
 <h2>Open playground-2 video to see it live :D</h2>
 
 <h1>playgroung-1 task</h1>
